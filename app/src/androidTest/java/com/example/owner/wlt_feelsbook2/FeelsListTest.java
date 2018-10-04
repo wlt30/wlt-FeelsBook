@@ -14,9 +14,21 @@ public class FeelsListTest extends TestCase {
     }
 
     public void testAddFeelsList(){
-        FeelsList feelsList = new FeelsList();
+        FeelsList anotherFeelsList = new FeelsList();
         Feel testFeel = new Feel("sad", Calendar.getInstance().getTime(), "No comment");
-        feelsList.add(testFeel);
-        assertTrue("Empty Feels List", feelsList.count()==1);
+        anotherFeelsList.add(testFeel);
+        assertTrue("List size not 1", anotherFeelsList.count()==1);
+        assertTrue("feelsList does not contain testcase", anotherFeelsList.contains(testFeel));
+    }
+
+    public void testRemoveFeelsList(){
+        FeelsList anotherFeelsList = new FeelsList();
+        Feel testFeel = new Feel("sad", Calendar.getInstance().getTime(), "No comment");
+        anotherFeelsList.add(testFeel);
+        assertTrue("Non-Empty Feels List", anotherFeelsList.count()==1);
+        assertTrue("feelsList contains test", anotherFeelsList.contains(testFeel));
+        anotherFeelsList.remove(testFeel);
+        assertTrue("List not empty", anotherFeelsList.count()==0);
+        assertFalse("feelsList still contains testcase", anotherFeelsList.contains(testFeel));
     }
 }

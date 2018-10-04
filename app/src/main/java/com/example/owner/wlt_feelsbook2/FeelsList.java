@@ -4,24 +4,33 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class FeelsList implements MyObservable, MyObserver{
-    private Feel mostRecentFeel;
-    private ArrayList<Feel> feels = new ArrayList<>();
+    /*protected Feel mostRecentFeel;*/
+    protected ArrayList<Feel> feels;
+
+    public FeelsList(){
+        feels = new ArrayList<>();
+    }
 
     public void add(Feel feel){
-        mostRecentFeel = feel;
+        /*this.mostRecentFeel = feel;*/
         feels.add(feel);
         feel.addObserver(this);
         notifyAllObservers();
     }
-
-    public Feel getMostRecentFeel(){
-        return mostRecentFeel;
+    public void remove(Feel feel){
+        feels.remove(feel);
     }
-
+    /*public Feel getMostRecentFeel(){
+        return mostRecentFeel;
+    }*/
     public int count(){return feels.size();}
 
-    private volatile ArrayList<MyObserver> observers = new ArrayList<>();
-
+    public Boolean contains(Feel feel){
+        return (feels.contains(feel));
+    }
+    public Collection<Feel> getFeels() {
+        return this.feels;
+    }
     public void addObserver(MyObserver observer){
         observers.add(observer);
     }
@@ -31,11 +40,10 @@ public class FeelsList implements MyObservable, MyObserver{
         }
     }
 
+    private volatile ArrayList<MyObserver> observers = new ArrayList<>();
     public void myNotify(MyObservable observable){
         notifyAllObservers();
     }
 
-    public Collection<Feel> getFeels() {
-        return null;
-    }
+
 }
