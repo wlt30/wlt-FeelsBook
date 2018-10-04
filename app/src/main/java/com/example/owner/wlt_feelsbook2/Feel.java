@@ -8,7 +8,7 @@ public abstract class Feel extends Object implements Postable, MyObservable {
     private String comment = "(optional)";
     private String mood;
     //want to have a mood that's chosen from the list of available moods
-    protected Date date;
+    private Date date; //this was protected before, but we want it to be editable
 
     public Feel(String mood, Date date, String comment) throws FeelTooLongException{
         this.setComment(comment);
