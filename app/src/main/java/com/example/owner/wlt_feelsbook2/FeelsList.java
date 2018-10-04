@@ -18,7 +18,6 @@ public class FeelsList implements MyObservable, MyObserver{
     }
 
     public int count(){return feels.size();}
-
     private volatile ArrayList<MyObserver> observers = new ArrayList<>();
 
     public void addObserver(MyObserver observer){
