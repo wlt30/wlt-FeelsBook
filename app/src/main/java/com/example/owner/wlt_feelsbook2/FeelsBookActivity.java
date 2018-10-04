@@ -46,7 +46,7 @@ public class FeelsBookActivity extends Activity {
     private ArrayAdapter<Feel> adapter;
 
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState); //this is a view
         setContentView(R.layout.main); // this is a view
 

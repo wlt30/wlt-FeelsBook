@@ -5,5 +5,5 @@ import java.util.Date;
 public interface Postable {
     public String getComment();
     public String getMood();
-    public Date getDate();
+    public String getDate();
 }

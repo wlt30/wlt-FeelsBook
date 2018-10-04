@@ -1,6 +1,7 @@
 package com.example.owner.wlt_feelsbook2;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class FeelsList implements MyObservable, MyObserver{
     private Feel mostRecentFeel;
@@ -32,5 +33,9 @@ public class FeelsList implements MyObservable, MyObserver{
 
     public void myNotify(MyObservable observable){
         notifyAllObservers();
+    }
+
+    public Collection<Feel> getFeels() {
+        return null;
     }
 }
