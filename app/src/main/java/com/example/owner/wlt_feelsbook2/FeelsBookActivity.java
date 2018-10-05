@@ -27,33 +27,39 @@ import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+
+import static android.widget.Toast.makeText;
 
 public class FeelsBookActivity extends Activity {
 
     private static final String FILENAME = "feels_log.sav";
     private FeelsBookActivity activity = this;
-
-    public Button getAddButton() {return addButton;}
+    public Button getAddButton() {
+        return addButton;
+    }
 
     private Button addButton;
 
-    public ListView getFeelsHistory() {return feelsHistory;}
+    public ListView getFeelsHistory() {
+        return feelsHistory;
+    }
 
     public ListView feelsHistory;
 
-    private ArrayList<Feel> feels = new ArrayList<>();
+    protected ArrayList<Feel> feels = new ArrayList<>();
     private ArrayAdapter<Feel> adapter;
 
     /*Called when the activity is first created*/
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState); //this is a view
         setContentView(R.layout.activity_main); // this is a view
 
         addButton = findViewById(R.id.addButton);
         feelsHistory = findViewById(R.id.feelsHistory);
 
-        addButton.setOnClickListener(new View.OnClickListener(){
+        addButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(FeelsBookActivity.this, AddFeel.class);
                 startActivity(intent);
@@ -62,11 +68,12 @@ public class FeelsBookActivity extends Activity {
         });
     }
 
-    public void addFeel(MenuItem menu){
+    public void addFeel(MenuItem menu) {
         Toast.makeText(this, "Adding Feel", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(FeelsBookActivity.this, AddFeel.class);
         startActivity(intent);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
