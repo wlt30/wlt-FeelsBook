@@ -13,6 +13,7 @@ public class FeelsList implements MyObservable, MyObserver{
         feel.addObserver(this);
         notifyAllObservers();
     }
+
     public void remove(Feel feel){
         feels.remove(feel);
     }
@@ -40,7 +41,6 @@ public class FeelsList implements MyObservable, MyObserver{
             observer.myNotify(this);
         }
     }
-    private volatile ArrayList<MyObserver> observers = new ArrayList<>();
     public void myNotify(MyObservable observable){
         notifyAllObservers();
     }

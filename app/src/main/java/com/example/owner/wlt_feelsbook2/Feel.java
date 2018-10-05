@@ -18,14 +18,9 @@ public class Feel extends Object implements MyObservable {
         this.comment = comment;
     }
 
-    public Feel(String mood) throws FeelTooLongException{
-        this.setMood(mood);
-        this.date = new Date();
-    }
-
     public String getComment() {return comment;}
     public String getMood() {return mood;}
-    public String getDate() { return dateToString(); }
+    public Date getDate() { return date; }
 
     public void setMood(String mood) throws FeelTooLongException{
             this.mood = mood;
@@ -37,7 +32,8 @@ public class Feel extends Object implements MyObservable {
         notifyAllObservers();
     }
 
-    public String dateToString() {
+    @Override
+    public String toString() {
         Date testDate = this.date;
         DateFormat dformat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss");
         String newDate = dformat.format(new Date());
