@@ -1,5 +1,6 @@
 package com.example.owner.wlt_feelsbook2;
-
+/* FeelsList is an array of Feels objects and is displayed using a ListView in the activity_main.xml layout. This class includes functions for adding, removing, counting and checking for a specified Feel. The count method would be modified to be able to search for all entries of a given mood and return and integer count.
+ */
 import java.util.ArrayList;
 import java.util.Collection;
 

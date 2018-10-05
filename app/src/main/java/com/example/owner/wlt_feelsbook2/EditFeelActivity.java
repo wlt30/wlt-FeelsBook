@@ -1,5 +1,6 @@
 package com.example.owner.wlt_feelsbook2;
-
+/* The EditFeelActivity is to be called when an entry in the FeelsLogs is selected. The layout would then be changed to activity_edit_feel.xml which would have a Calendar widget that would be used to manipulate the date of the Feel entry, as well as a EditText field for editing or adding a comment up to a maximum of 100 characters. There would be a Save button that would update the FeelsLog, notify all observers, then call the main FeelsBookActivity activity.
+ */
 import android.app.Activity;
 import android.content.Intent;
 import android.content.ServiceConnection;

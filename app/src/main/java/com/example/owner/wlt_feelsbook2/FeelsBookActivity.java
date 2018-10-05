@@ -1,5 +1,6 @@
 package com.example.owner.wlt_feelsbook2;
-
+/* FeelsBookActivity is the default activity process for this application as documented in the AndroidManifest.xml. It calls upon the activity_main.xml layout which contains the 6 mood buttons, the current feels log and the commentBody field. There would be a colour coded legend at the top that would indicate the number of entries matching that colour-coded emotion. This would be done using the FeelsList.count() method which would be edited to find entries with a certain mood.
+ */
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

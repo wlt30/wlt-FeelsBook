@@ -1,4 +1,6 @@
 package com.example.owner.wlt_feelsbook2;
+/*the Feel class describes the Feel object which is the primary object used in this FeelsBook application. The Feel object has a String comment that is entered by the user by entering in EditText widget up to a maximum of 100 characters. This is constrained by the android:maxLength attribute in activity_main.xml for commentBody. The mood is set based on the user's choice from the displayed 6 buttons: love, joy, surprise, anger, sadness, fear. The date is taken using java.util to get the current date which is then reformatted to iso8601 format.
+ */
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
