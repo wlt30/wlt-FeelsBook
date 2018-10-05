@@ -1,23 +1,35 @@
 package com.example.owner.wlt_feelsbook2;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class FeelsList implements MyObservable, MyObserver{
     private Feel mostRecentFeel;
-    private ArrayList<Feel> feels = new ArrayList<>();
+    private ArrayList<Feel> feels;
 
     public void add(Feel feel){
-        mostRecentFeel = feel;
+        this.mostRecentFeel = feel;
         feels.add(feel);
         feel.addObserver(this);
         notifyAllObservers();
     }
-
-    public Feel getMostRecentFeel(){
+    public void remove(Feel feel){
+        feels.remove(feel);
+    }
+    public Feel getMostRecentFeel() {
         return mostRecentFeel;
     }
+    public int count(){
+        return (feels.size());
+    }
 
-    public int count(){return feels.size();}
+    public Boolean contains(Feel feel){
+        return (feels.contains(feel));
+    }
+    public Collection<Feel> getFeels() {
+        return this.feels;
+    }
+
     private volatile ArrayList<MyObserver> observers = new ArrayList<>();
 
     public void addObserver(MyObserver observer){
@@ -28,7 +40,7 @@ public class FeelsList implements MyObservable, MyObserver{
             observer.myNotify(this);
         }
     }
-
+    private volatile ArrayList<MyObserver> observers = new ArrayList<>();
     public void myNotify(MyObservable observable){
         notifyAllObservers();
     }
