@@ -29,6 +29,9 @@ public class FeelsList implements MyObservable, MyObserver{
     public Collection<Feel> getFeels() {
         return this.feels;
     }
+
+    private volatile ArrayList<MyObserver> observers = new ArrayList<>();
+
     public void addObserver(MyObserver observer){
         observers.add(observer);
     }
