@@ -15,4 +15,5 @@
     <string name="sadness">Sadness</string>
     <string name="fear">Fear</string>
     <string name="optional_comment"><![CDATA[<optional comment>]]></string>
+    <string name="settings">Settings</string>
 </resources>

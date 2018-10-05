@@ -113,6 +113,13 @@ public class FeelsBookActivity extends Activity {
                 postFeel("Fear", comment);
             }
         });
+
+        feelsHistory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(activity, EditFeelActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void postFeel(String mood, String comment){
@@ -122,11 +129,6 @@ public class FeelsBookActivity extends Activity {
         adapter.notifyDataSetChanged();
         saveInFile();
     }
-/*    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main,menu);
-        return true;
-    }*/
 
     @Override
     protected void onStart(){
