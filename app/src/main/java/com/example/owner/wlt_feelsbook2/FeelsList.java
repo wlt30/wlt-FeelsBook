@@ -44,6 +44,4 @@ public class FeelsList implements MyObservable, MyObserver{
     public void myNotify(MyObservable observable){
         notifyAllObservers();
     }
-
-
 }

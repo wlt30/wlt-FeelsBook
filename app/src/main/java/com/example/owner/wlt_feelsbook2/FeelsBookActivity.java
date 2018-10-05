@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Menu;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -25,6 +26,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class FeelsBookActivity extends Activity {
 
@@ -38,8 +40,6 @@ public class FeelsBookActivity extends Activity {
     public ListView getFeelsHistory() {return feelsHistory;}
 
     public ListView feelsHistory;
-
-    public ArrayList<Feel> getFeels() {return feels;}
 
     private ArrayList<Feel> feels = new ArrayList<>();
     private ArrayAdapter<Feel> adapter;
@@ -57,28 +57,21 @@ public class FeelsBookActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(FeelsBookActivity.this, AddFeel.class);
                 startActivity(intent);
-//              setContentView(R.layout.select_mood);
                 saveInFile(); //declared later
             }
         });
-//        feelsHistory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Intent intent = new Intent(activity, AddFeel.class);
-//                startActivity(intent);
-//            }
-//        });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.main,menu);
-        return true;
     }
 
     public void addFeel(MenuItem menu){
         Toast.makeText(this, "Adding Feel", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(FeelsBookActivity.this, AddFeel.class);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main,menu);
+        return true;
     }
 
     @Override
