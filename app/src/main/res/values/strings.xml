@@ -6,6 +6,6 @@
     <string name="date">Date:</string>
     <string name="select_date">Select Date</string>
     <string name="mood">Mood</string>
-    <string name="add_feel">Add Feel</string>
     <string name="select_mood">Select Mood</string>
+    <string name="add_feel">Add Feel</string>
 </resources>

@@ -27,6 +27,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@color/colorPrimary"
+        android:onClick="addFeel"
         android:text="@string/add_feel"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -3,12 +3,15 @@ package com.example.owner.wlt_feelsbook2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -52,18 +55,30 @@ public class FeelsBookActivity extends Activity {
 
         addButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-               setResult(RESULT_OK);
-//               setContentView(R.layout.select_mood);
-               saveInFile(); //declared later
+                Intent intent = new Intent(FeelsBookActivity.this, AddFeel.class);
+                startActivity(intent);
+//              setContentView(R.layout.select_mood);
+                saveInFile(); //declared later
             }
         });
-
 //        feelsHistory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                Intent intent = new Intent(activity, AddFeel.class);
 //                startActivity(intent);
 //            }
 //        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.main,menu);
+        return true;
+    }
+
+    public void addFeel(MenuItem menu){
+        Toast.makeText(this, "Adding Feel", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(FeelsBookActivity.this, AddFeel.class);
+        startActivity(intent);
     }
 
     @Override

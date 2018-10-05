@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.owner.wlt_feelsbook2.AddFeel">
     <item
+        android:id="@+id/addFeel"
+        android:onClick="addFeel"
+        android:title="@string/add_feel" />
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
