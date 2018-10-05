@@ -19,11 +19,13 @@
         android:dividerHeight="10dp"
         android:entries="@string/feelsbook"
         android:scrollbars="vertical"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.471" />
 
     <TextView
         android:id="@+id/yourFeelsTextView"
@@ -42,7 +44,7 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/addButton"
-        android:layout_width="wrap_content"
+        android:layout_width="37dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="328dp"
         android:layout_marginLeft="328dp"
@@ -52,6 +54,7 @@
         android:layout_marginBottom="18dp"
         android:clickable="true"
         android:focusable="true"
+        android:onClick="addFeel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
