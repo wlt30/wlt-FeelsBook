@@ -28,13 +28,9 @@ public class FeelsBookActivity extends Activity {
     private static final String FILENAME = "feels_log.sav";
     private FeelsBookActivity activity = this;
 
-    public Button getSaveButton() {return saveButton;}
+    public Button getAddButton() {return addButton;}
 
-    private Button saveButton;
-
-    private EditText getBodyText() {return bodyText;}
-
-    private EditText bodyText;
+    private Button addButton;
 
     public ListView getFeelsHistory() {return feelsHistory;}
 
@@ -45,39 +41,36 @@ public class FeelsBookActivity extends Activity {
     private ArrayList<Feel> feels = new ArrayList<>();
     private ArrayAdapter<Feel> adapter;
 
+    /*Called when the activity is first created*/
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState); //this is a view
-        setContentView(R.layout.main); // this is a view
+        setContentView(R.layout.activity_main); // this is a view
 
-        bodyText = (EditText) findViewById(R.id.body); //this is a view
-        saveButton = (Button) findViewById(R.id.save);
-        feelsHistory = (ListView) findViewById(R.id.feelsHistory);
+        addButton = findViewById(R.id.addButton);
+        feelsHistory = findViewById(R.id.feelsHistory);
 
-        saveButton.setOnClickListener(new View.OnClickListener(){
-
+        addButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                setResult(RESULT_OK);
-                String mood = bodyText.getText().toString(); // this is a controller for view v
-                feels.add(new NormalPost(mood));
-                adapter.notifyDataSetChanged();
-                saveInFile(); //declared later
+               setResult(RESULT_OK);
+//               setContentView(R.layout.select_mood);
+               saveInFile(); //declared later
             }
         });
 
-        feelsHistory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(activity, AddFeel.class);
-                startActivity(intent);
-            }
-        });
+//        feelsHistory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Intent intent = new Intent(activity, AddFeel.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     @Override
     protected void onStart(){
         super.onStart();
         loadFromFile(); //declared later
-        adapter = new ArrayAdapter<Feel>(this, R.layout.main, feels);
+        adapter = new ArrayAdapter<Feel>(this, R.layout.activity_main, feels);
         feelsHistory.setAdapter(adapter);
     }
 
